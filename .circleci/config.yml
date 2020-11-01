@@ -20,7 +20,7 @@ jobs:
           command: |
             echo "hello world" > output.txt
       - persist_to_workspace:
-          root: /tmp/dir
+          root: ~/
           paths:
             - output.txt
 
@@ -30,8 +30,8 @@ jobs:
     steps:
       - checkout
       - attach_workspace:
-          at: /tmp/dir
+          at: ~/
       - run:
           name: "print output file"
           command: |
-            cat /tmp/dir/output.txt
+            cat ~/output.txt
