@@ -16,3 +16,27 @@ jobs:
           name: "echo variable with my name"
           command: |
             echo $VARDAS
+  save_hello_world_output:
+    build:
+      docker:
+        - image: cimg/base:2020.01
+      steps:
+        - checkout
+        - persist_to_workspace:
+            root: /tmp/dir
+        - run:
+            name: "save hello world output"
+            command: |
+              echo "hello world" > output.txt
+  print_output_file:
+    build:
+      docker:
+        - image: cimg/base:2020.01
+      steps:
+        - checkout
+        - attach_workspace:
+            at: /tmp/dir
+        - run:
+            name: "print output file"
+            command: |
+              cat /tmp/dir/output.txt
