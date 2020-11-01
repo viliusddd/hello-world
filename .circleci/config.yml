@@ -7,8 +7,9 @@ jobs:
     steps:
       - run: return 1
       - run:
-        - command: echo "didnt fail"
-        - when: on_fail
+          name: on error
+          command: echo "didnt fail"
+          when: on_fail
 
 workflows:
   my_workflow:
