@@ -9,4 +9,4 @@ jobs:
       - checkout
       - run:
         command: |
-          echo $NAME
+          echo $VARDAS
