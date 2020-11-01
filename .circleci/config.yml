@@ -10,9 +10,3 @@ jobs:
       - run:
         command: |
           echo $NAME
-
-workflows:
-  # Name the workflow "welcome"
-  welcome:
-    jobs:
-      - print_my_name
