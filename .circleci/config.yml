@@ -2,7 +2,7 @@
 version: 2.1
 # Use a package of configuration called an orb.
 jobs:
-  print_my_name:
+  build:
     docker:
       - image: cimg/base:2020.01
     steps:
