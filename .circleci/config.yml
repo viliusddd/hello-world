@@ -8,5 +8,6 @@ jobs:
     steps:
       - checkout
       - run:
+        name: "echo variable with my name"
         command: |
           echo $VARDAS
