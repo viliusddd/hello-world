@@ -21,7 +21,6 @@ jobs:
       - image: circleci/node:13.8.0
     steps:
       - run:
-        name: "echo my name"
         command: |
           echo mano vardas yra $Name
 
