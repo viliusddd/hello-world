@@ -1,17 +1,18 @@
 version: 2.1
 
 jobs:
-  fail_job:
+  create_infrastructure:
     docker:
-      - image: circleci/node:13.8.0
+      - image: amazon/aws-cli
     steps:
-      - run: return 1
+      - checkout
       - run:
-          name: on error
-          command: echo "didnt fail"
-          when: on_fail
-
+          name: Ensure backend infrastructure exist
+          command: |
+            aws cloudformation deploy \
+              --template-file template.yml \
+              --stack-name my-stack
 workflows:
   my_workflow:
     jobs:
-      - fail_job
+      - create_infrastructure
